@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AP US History — Summer Listening: The Federalist Papers</title>
+<style>
+  :root{
+    --navy:#0f2c4d; --navy2:#16365c; --blue:#1f5fa6; --accent:#c0392b;
+    --bg:#f4f6f9; --card:#ffffff; --ink:#1c2733; --muted:#5b6b7b; --line:#e1e7ee;
+    --ok:#1e7e45; --okbg:#e8f5ee;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--blue)}
+  .wrap{max-width:840px;margin:0 auto;padding:0 18px 64px}
+  header.site{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:30px 0 26px;border-bottom:4px solid var(--accent)}
+  header.site .wrap{padding-top:0;padding-bottom:0}
+  .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:700;color:#a9c6e8;margin:0 0 6px}
+  header.site h1{margin:0;font-size:27px;line-height:1.2}
+  header.site p{margin:8px 0 0;color:#d6e2f1;font-size:15px}
+  .pill{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:4px 11px;border-radius:999px;font-size:12.5px;font-weight:600;margin-top:14px;color:#fff}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:22px 0;box-shadow:0 1px 2px rgba(16,44,77,.04)}
+  .panel h2{margin:0 0 8px;font-size:17px;color:var(--navy)}
+  .panel ul{margin:8px 0 0;padding-left:20px}
+  .panel li{margin:3px 0}
+  .small{font-size:13.5px;color:var(--muted)}
+
+  .namebar{position:sticky;top:0;z-index:20;background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:12px 16px;margin:22px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;box-shadow:0 2px 10px rgba(16,44,77,.06)}
+  .namebar label{font-weight:700;color:var(--navy);font-size:14px;white-space:nowrap}
+  .namebar input{flex:1;min-width:180px;padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:15px}
+  .namebar .ok{font-size:13px;color:var(--ok);font-weight:600;display:none}
+
+  .progress{font-size:13px;color:var(--muted);margin:-6px 2px 18px}
+  .progress b{color:var(--navy)}
+
+  .banner{background:#fff7e6;border:1px solid #f1d59a;color:#7a5a12;border-radius:10px;padding:12px 16px;margin:18px 0;font-size:13.5px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:18px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(16,44,77,.05)}
+  .card .head{display:flex;gap:14px;align-items:flex-start;padding:16px 18px 12px}
+  .num{flex:0 0 auto;width:46px;height:46px;border-radius:10px;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px}
+  .card h3{margin:0;font-size:18px;color:var(--navy)}
+  .card .by{font-size:13px;color:var(--muted);margin:2px 0 0;font-weight:600}
+  .card .blurb{margin:7px 0 0;font-size:14.5px;color:#33424f}
+  .videowrap{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+  .videowrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ytlink{font-size:12.5px;padding:8px 18px 0;color:var(--muted)}
+  .ytlink a{color:var(--blue)}
+
+  .resp{padding:14px 18px 18px}
+  .resp textarea{width:100%;min-height:120px;resize:vertical;padding:11px 13px;border:1.5px solid var(--line);
+    border-radius:9px;font-size:15px;font-family:inherit;line-height:1.5}
+  .resp textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,95,166,.12)}
+  .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+  button.submit{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14.5px;
+    font-weight:700;cursor:pointer}
+  button.submit:hover{background:#1a4f8a}
+  button.submit:disabled{opacity:.6;cursor:default}
+  .status{font-size:13.5px;font-weight:600}
+  .status.ok{color:var(--ok)}
+  .status.err{color:var(--accent)}
+  .done-tag{display:none;align-items:center;gap:5px;background:var(--okbg);color:var(--ok);border:1px solid #bfe3cd;
+    padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700}
+
+  .feed{border-top:1px dashed var(--line);margin:6px 18px 0;padding:12px 0 4px}
+  .feed summary{cursor:pointer;font-size:13.5px;color:var(--navy);font-weight:700;list-style:none}
+  .feed summary::-webkit-details-marker{display:none}
+  .feed summary .chev{display:inline-block;transition:transform .15s;margin-right:6px}
+  .feed[open] summary .chev{transform:rotate(90deg)}
+  .post{background:#f7f9fb;border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin:9px 0}
+  .post .meta{font-size:12px;color:var(--muted);margin-bottom:3px}
+  .post .meta b{color:var(--navy)}
+  .post .txt{font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+  .empty{font-size:13px;color:var(--muted);padding:6px 0}
+
+  footer{margin-top:34px;text-align:center;color:var(--muted);font-size:12.5px}
+  @media(max-width:560px){ header.site h1{font-size:22px} .num{width:40px;height:40px;font-size:15px} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="eyebrow">AP U.S. History &middot; Summer Assignment</p>
+    <h1>The Federalist Papers — Listen &amp; Respond</h1>
+    <p>Mr. Noah &middot; Comp Sci High &middot; 2026–27 School Year</p>
+    <span class="pill">Due before our first class meeting in late August</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="panel">
+    <h2>What to do</h2>
+    <p class="small" style="margin-top:0">Listen to all <b>10</b> of the Federalist Papers below. For <b>each one</b>, write a short response (about <b>4–6 sentences</b>) in the box under the player and click <b>Submit response</b>. Your responses save to our class record and appear in the “Class responses” list under each paper.</p>
+    <h2 style="margin-top:14px">In each response, try to hit:</h2>
+    <ul class="small">
+      <li>What is the <b>main argument</b> the author is making?</li>
+      <li>One <b>line, quote, or moment</b> that stood out to you.</li>
+      <li>Your <b>reaction</b>, or a <b>question</b> it raised for you.</li>
+      <li>A <b>connection to today</b>, if you can find one.</li>
+    </ul>
+    <p class="small" style="margin-bottom:0">Tip: spread these out across the summer — about one a week — instead of saving them for the last days. Audio readings are by <em>VonClegg Classics</em> (public domain text).</p>
+  </section>
+
+  <div class="namebar">
+    <label for="studentName">Your name</label>
+    <input id="studentName" type="text" placeholder="First and last name" autocomplete="name" />
+    <span class="ok" id="nameSaved">saved ✓</span>
+  </div>
+  <div class="progress" id="progress"></div>
+
+  <div id="configBanner" class="banner" style="display:none"></div>
+
+  <div id="papers"></div>
+
+  <footer>
+    AP U.S. History · Comp Sci High · Questions? Email Mr. Noah at
+    <a href="mailto:david.noah@compscihigh.org">david.noah@compscihigh.org</a>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG  —  EDIT THIS ONE LINE AFTER DEPLOYING THE APPS SCRIPT
+   ------------------------------------------------------------
+   Paste the Apps Script Web App URL (it ends in /exec) between
+   the quotes below. Until you do, the page runs in PREVIEW MODE
+   (responses save only in this browser so you can test the look).
+   ============================================================ */
+const WEB_APP_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+/* Show the public "Class responses" list under each paper?
+   Set to false if you want responses collected privately in the
+   Google Sheet only (students won't see each other's posts).   */
+const SHOW_FEED = true;
+
+/* ------------------------------------------------------------ */
+
+const PAPERS = [
+  {n:1,  author:"Alexander Hamilton", id:"WLA-A_Rh6-Y", blurb:"General introduction: why the union matters, and a plea for an honest, reasoned debate over the Constitution."},
+  {n:10, author:"James Madison",      id:"-PCCEVT5A8w", blurb:"The “mischiefs of faction” — and why a large republic controls them better than a small one."},
+  {n:14, author:"James Madison",      id:"lAI-GLZQQJk", blurb:"Answering the fear that a republic can’t actually work across a large territory."},
+  {n:15, author:"Alexander Hamilton", id:"wOXtyQlZhR8", blurb:"Everything going wrong under the Articles of Confederation — and the need for real national power."},
+  {n:39, author:"James Madison",      id:"bGQagxaFNOU", blurb:"Is the new government truly republican? Is it federal or national? Madison answers: both."},
+  {n:47, author:"James Madison",      id:"EzBGt0S_Y2o", blurb:"Separation of powers — keeping the legislative, executive, and judicial branches distinct."},
+  {n:51, author:"James Madison",      id:"pva3RTVM3i4", blurb:"Checks and balances: “Ambition must be made to counteract ambition.”"},
+  {n:70, author:"Alexander Hamilton", id:"C1r3I-7velk", blurb:"The case for a single, energetic executive — “energy in the executive.”"},
+  {n:78, author:"Alexander Hamilton", id:"PUkZD4G4v7c", blurb:"The courts, judicial review, and why the judiciary is the “least dangerous” branch."},
+  {n:84, author:"Alexander Hamilton", id:"mu4Tykfyz_4", blurb:"Hamilton’s argument against adding a Bill of Rights — the objection that helped produce one."}
+];
+
+const CONFIGURED = WEB_APP_URL && !WEB_APP_URL.includes("PASTE_YOUR");
+const LS_NAME = "fed_name";
+const LS_DONE = "fed_done_v1";
+const LS_LOCAL = "fed_local_posts_v1";  // preview-mode storage
+
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function doneSet(){ try{ return new Set(JSON.parse(localStorage.getItem(LS_DONE)||"[]")); }catch(e){ return new Set(); } }
+function saveDone(set){ localStorage.setItem(LS_DONE, JSON.stringify([...set])); }
+
+/* ---------- build the page ---------- */
+const papersEl = document.getElementById("papers");
+PAPERS.forEach(p => {
+  const card = document.createElement("section");
+  card.className = "card";
+  card.id = "paper-" + p.n;
+  card.innerHTML = `
+    <div class="head">
+      <div class="num">${p.n}</div>
+      <div>
+        <h3>Federalist No. ${p.n}
+          <span class="done-tag" id="tag-${p.n}">submitted ✓</span>
+        </h3>
+        <p class="by">by ${esc(p.author)}</p>
+        <p class="blurb">${esc(p.blurb)}</p>
+      </div>
+    </div>
+    <div class="videowrap">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/${p.id}?rel=0&modestbranding=1"
+        title="Federalist No. ${p.n} audio" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="ytlink">Trouble playing? <a href="https://www.youtube.com/watch?v=${p.id}" target="_blank" rel="noopener">Open on YouTube</a></div>
+    <div class="resp">
+      <textarea id="ta-${p.n}" placeholder="Your response to Federalist No. ${p.n} (about 4–6 sentences)…"></textarea>
+      <div class="row">
+        <button class="submit" id="btn-${p.n}" onclick="submitResponse(${p.n})">Submit response</button>
+        <span class="status" id="st-${p.n}"></span>
+      </div>
+    </div>
+    ${SHOW_FEED ? `<details class="feed" id="feed-${p.n}">
+        <summary><span class="chev">▸</span> Class responses (<span id="cnt-${p.n}">0</span>)</summary>
+        <div id="posts-${p.n}"><div class="empty">No responses yet.</div></div>
+      </details>` : ``}
+  `;
+  papersEl.appendChild(card);
+});
+
+/* ---------- name persistence ---------- */
+const nameInput = document.getElementById("studentName");
+nameInput.value = localStorage.getItem(LS_NAME) || "";
+let nameTimer;
+nameInput.addEventListener("input", () => {
+  localStorage.setItem(LS_NAME, nameInput.value.trim());
+  const ok = document.getElementById("nameSaved");
+  ok.style.display = "inline"; clearTimeout(nameTimer);
+  nameTimer = setTimeout(()=>{ ok.style.display="none"; }, 1200);
+});
+
+/* ---------- progress + done tags ---------- */
+function refreshProgress(){
+  const set = doneSet();
+  PAPERS.forEach(p => {
+    const tag = document.getElementById("tag-"+p.n);
+    if(tag) tag.style.display = set.has(p.n) ? "inline-flex" : "none";
+  });
+  document.getElementById("progress").innerHTML =
+    `Your progress (this device): <b>${set.size} of ${PAPERS.length}</b> submitted.`;
+}
+
+/* ---------- config banner ---------- */
+if(!CONFIGURED){
+  const b = document.getElementById("configBanner");
+  b.style.display = "block";
+  b.innerHTML = "⚙️ <b>Preview mode.</b> The class record isn’t connected yet, so responses are only saved in this browser. " +
+    "Mr. Noah: paste the Apps Script Web App URL into the <code>WEB_APP_URL</code> line in <code>index.html</code> to go live.";
+}
+
+/* ---------- submit ---------- */
+function submitResponse(n){
+  const name = nameInput.value.trim();
+  const ta = document.getElementById("ta-"+n);
+  const text = ta.value.trim();
+  const st = document.getElementById("st-"+n);
+  const btn = document.getElementById("btn-"+n);
+  st.className = "status";
+  if(!name){ st.className="status err"; st.textContent="Add your name at the top first."; nameInput.focus(); return; }
+  if(text.length < 15){ st.className="status err"; st.textContent="Write a little more before submitting."; ta.focus(); return; }
+
+  const paper = PAPERS.find(p=>p.n===n);
+  const payload = { paper:String(n), paperTitle:`Federalist No. ${n} (${paper.author})`, name, response:text };
+
+  btn.disabled = true; st.className="status"; st.textContent="Saving…";
+
+  const onSaved = () => {
+    const set = doneSet(); set.add(n); saveDone(set);
+    refreshProgress();
+    st.className="status ok"; st.textContent="Saved! ✓";
+    btn.disabled = false;
+    if(SHOW_FEED) setTimeout(loadFeed, 900);
+  };
+  const onError = (msg) => { st.className="status err"; st.textContent=msg||"Couldn’t save — check your connection and try again."; btn.disabled=false; };
+
+  if(!CONFIGURED){
+    // preview mode: store locally
+    const posts = JSON.parse(localStorage.getItem(LS_LOCAL)||"[]");
+    posts.push({ ts:new Date().toISOString(), paper:String(n), paperTitle:payload.paperTitle, name, response:text });
+    localStorage.setItem(LS_LOCAL, JSON.stringify(posts));
+    onSaved(); if(SHOW_FEED) renderLocalFeed();
+    return;
+  }
+
+  // Live: POST as a "simple request" (text/plain) so the browser doesn't block it.
+  fetch(WEB_APP_URL, {
+    method:"POST",
+    headers:{ "Content-Type":"text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  }).then(() => onSaved())
+    .catch(() => {
+      // The request usually still reaches the server even if the response read is blocked.
+      // Treat as saved, then let the feed refresh confirm it.
+      onSaved();
+    });
+}
+
+/* ---------- feed (live via JSONP, or local in preview) ---------- */
+function groupByPaper(list){
+  const g = {}; PAPERS.forEach(p=>g[p.n]=[]);
+  list.forEach(r => { const k = parseInt(r.paper,10); if(g[k]) g[k].push(r); });
+  return g;
+}
+function renderFeed(list){
+  const g = groupByPaper(list);
+  PAPERS.forEach(p => {
+    const box = document.getElementById("posts-"+p.n);
+    const cnt = document.getElementById("cnt-"+p.n);
+    if(!box) return;
+    const items = (g[p.n]||[]).slice().reverse();
+    cnt.textContent = items.length;
+    if(!items.length){ box.innerHTML = '<div class="empty">No responses yet.</div>'; return; }
+    box.innerHTML = items.map(r => {
+      let when=""; try{ when = new Date(r.ts).toLocaleDateString(undefined,{month:"short",day:"numeric"}); }catch(e){}
+      return `<div class="post"><div class="meta"><b>${esc(r.name||"Anonymous")}</b>${when?" · "+esc(when):""}</div>`+
+             `<div class="txt">${esc(r.response)}</div></div>`;
+    }).join("");
+  });
+}
+function renderLocalFeed(){
+  if(!SHOW_FEED) return;
+  const posts = JSON.parse(localStorage.getItem(LS_LOCAL)||"[]");
+  renderFeed(posts);
+}
+function loadFeed(){
+  if(!SHOW_FEED) return;
+  if(!CONFIGURED){ renderLocalFeed(); return; }
+  const cb = "__fed_cb_" + Date.now() + "_" + Math.floor(Math.random()*1e4);
+  const s = document.createElement("script");
+  const timer = setTimeout(()=>{ cleanup(); }, 12000);
+  function cleanup(){ clearTimeout(timer); delete window[cb]; if(s.parentNode) s.remove(); }
+  window[cb] = (data) => { try{ if(data && data.responses) renderFeed(data.responses); }catch(e){} cleanup(); };
+  s.onerror = cleanup;
+  s.src = WEB_APP_URL + (WEB_APP_URL.includes("?")?"&":"?") + "action=list&callback=" + cb;
+  document.body.appendChild(s);
+}
+
+/* ---------- init ---------- */
+refreshProgress();
+if(SHOW_FEED){ CONFIGURED ? loadFeed() : renderLocalFeed(); }
+</script>
+</body>
+</html>
